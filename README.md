@@ -6,10 +6,14 @@
 
 </div>
 
-<!-- Clean Anime Coding GIF -->
-<img align="right" alt="Anime Coding" width="400" src="https://media.giphy.com/media/ZVik7pBtu9dNS/giphy.gif" />
-
 ## 🚀 About Me
+
+<div align="center">
+
+<!-- Japanese Anime Character GIF -->
+<img alt="Anime Character" width="400" src="https://user-images.githubusercontent.com/74038190/225813708-98b745f2-7d22-48cf-9150-083f1b00d6c9.gif" />
+
+</div>
 
 ```python
 class Rolan:
@@ -35,7 +39,13 @@ me.say_hi()
 
 ## ⚡ Tech Stack & Tools
 
-<img src="https://skillicons.dev/icons?i=python,javascript,typescript,html,css,git,github,vscode,linux,windows&theme=dark" />
+<img src="https://user-images.githubusercontent.com/74038190/212257472-08e52665-c503-4bd9-aa20-f5a4dae769b5.gif" width="80" />
+<img src="https://media.giphy.com/media/eNAsjO55tPbgaor7ma/giphy.gif" width="80" />
+<img src="https://media.giphy.com/media/XAxylRMCdpbEWUAvr8/giphy.gif" width="80" />
+<img src="https://media.giphy.com/media/IdyAQJVN2kVPNUrojM/giphy.gif" width="80" />
+<img src="https://media.giphy.com/media/kH1DBkPNyZPOk0BxrM/giphy.gif" width="80" />
+<img src="https://media.giphy.com/media/ln7z2eWriiQAllfVcn/giphy.gif" width="80" />
+<img src="https://media.giphy.com/media/fsEaZldNC8A1PJ3mwp/giphy.gif" width="80" />
 
 ### 🎌 Learning Journey
 
