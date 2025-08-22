@@ -2,7 +2,7 @@
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=180&section=header&text=Konnichiwa!%20I'm%20Rolan&fontSize=42&fontColor=fff&animation=twinkling&fontAlignY=32" />
 
-<img src="https://readme-typing-svg.herokuapp.com/?font=Righteous&size=30&center=true&vCenter=true&width=800&height=100&duration=4000&pause=1000&color=FF69B4&multiline=true&lines=👨‍💻+CS+Student+%26+Python+Developer;🛡️+Security+%26+Steganography+Expert;🎌+Anime+Lover+%26+Creative+Coder;⚡+Building+The+Future+With+Code!" />
+<img src="https://readme-typing-svg.herokuapp.com/?font=Righteous&size=28&center=true&vCenter=true&width=500&height=80&duration=4000&pause=1500&color=FF69B4&multiline=true&lines=CS+Student+%F0%9F%8E%93;Python+Developer+%F0%9F%90%8D;Security+Enthusiast+%F0%9F%9B%A1%EF%B8%8F;Anime+Lover+%F0%9F%8E%8C;Creative+Problem+Solver+%F0%9F%92%A1" />
 
 </div>
 
