@@ -33,23 +33,23 @@ me.say_hi()
 
 <div align="center">
 
-## ⚡ Tech Arsenal
+## ⚡ Tech Stack & Tools
 
 <img src="https://skillicons.dev/icons?i=python,javascript,typescript,html,css,git,github,vscode,linux,windows&theme=dark" />
 
-### 🎌 Skills Progress
+### 🎌 Learning Journey
 
-**Python Mastery** 🐍
-![Python](https://img.shields.io/badge/-90%25-FF69B4?style=for-the-badge&logo=python&logoColor=white)
+**Python Development** 🐍
+![Python](https://img.shields.io/badge/-Learning%20%26%20Building-FF69B4?style=for-the-badge&logo=python&logoColor=white)
 
-**Security Skills** 🛡️
-![Security](https://img.shields.io/badge/-85%25-9932CC?style=for-the-badge&logo=security&logoColor=white)
+**Security & Privacy** 🛡️
+![Security](https://img.shields.io/badge/-Exploring%20%26%20Growing-9932CC?style=for-the-badge&logo=security&logoColor=white)
 
 **Steganography** 🔐
-![Steganography](https://img.shields.io/badge/-80%25-FF1493?style=for-the-badge&logo=ghost&logoColor=white)
+![Steganography](https://img.shields.io/badge/-Passionate%20About-FF1493?style=for-the-badge&logo=ghost&logoColor=white)
 
-**Problem Solving** 💡
-![Problem Solving](https://img.shields.io/badge/-95%25-00CED1?style=for-the-badge&logo=puzzle&logoColor=white)
+**Creative Coding** 💡
+![Problem Solving](https://img.shields.io/badge/-Always%20Improving-00CED1?style=for-the-badge&logo=lightbulb&logoColor=white)
 
 </div>
 
@@ -101,11 +101,12 @@ me.say_hi()
 ## 🎌 What I'm Up To
 
 ```
-🔐 Working on: InvisioVault - Advanced Steganography Tools
-🌱 Learning: Advanced Security Concepts & Web Technologies  
+🔐 Currently Building: InvisioVault - My Steganography Journey
+🌱 Learning: Security Concepts & Web Technologies  
 💡 Exploring: Creative ways to hide and protect data
-🎯 Goal: Contributing to open-source security projects
+🎯 Dream: Contributing to open-source security projects
 ⚡ Fun fact: I love combining security with creativity!
+🎮 Anime Quote: "Hard work is necessary to become strong!"
 ```
 
 </div>
