@@ -4,17 +4,10 @@
 
 <img src="https://readme-typing-svg.herokuapp.com/?font=Righteous&size=35&center=true&vCenter=true&width=600&height=70&duration=4000&pause=1000&color=FF69B4&multiline=true&lines=👨‍💻+CS+Student+%26+Python+Developer;🛡️+Security+%26+Steganography+Expert;🎌+Anime+Lover+%26+Creative+Coder;⚡+Building+The+Future+With+Code!" />
 
-<!-- Animated Anime Banner -->
-<img src="https://media.giphy.com/media/f6hnhHkks8bk4jwjh3/giphy.gif" width="300" />
-
 </div>
 
-<!-- Animated Coding Scene -->
-<div align="right">
-  <img alt="Anime Coding" width="400" src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" />
-  <br/>
-  <img alt="Matrix Rain" width="400" src="https://media.giphy.com/media/3o7qDSOvfaCO9b3MlO/giphy.gif" />
-</div>
+<!-- Clean Anime Coding GIF -->
+<img align="right" alt="Anime Coding" width="400" src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" />
 
 ## 🚀 About Me
 
@@ -42,11 +35,9 @@ me.say_hi()
 
 ## ⚡ Tech Arsenal
 
-<img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" width="50"> 
-<img src="https://skillicons.dev/icons?i=python,javascript,typescript,html,css,git,github,vscode,linux,windows&theme=dark&perline=10" />
-<img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" width="50">
+<img src="https://skillicons.dev/icons?i=python,javascript,typescript,html,css,git,github,vscode,linux,windows&theme=dark" />
 
-### 🎌 Anime-Style Progress Bars
+### 🎌 Skills Progress
 
 **Python Mastery** 🐍
 ![Python](https://img.shields.io/badge/-90%25-FF69B4?style=for-the-badge&logo=python&logoColor=white)
@@ -150,36 +141,22 @@ me.say_hi()
 
 <div align="center">
   
-## 🎭 Anime Inspiration Gallery
+## 🎭 Coding Philosophy
 
-<img src="https://media.giphy.com/media/du3J3cXyzhj75IOgvA/giphy.gif" width="120"/>
-<img src="https://media.giphy.com/media/LaVp0AyqR5bGsC5Cbm/giphy.gif" width="120"/>
-<img src="https://media.giphy.com/media/L1R1tvI9svkIWwpVYr/giphy.gif" width="120"/>
+### 🌸 *"The only way to do great work is to love what you do"* ✨
 
-### 🌸 Coding Philosophy
-*"The only way to do great work is to love what you do"* ✨
-
-<img src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif" width="300"/>
+*"Code is poetry written in logic"* 💫
 
 </div>
 
-<!-- Dynamic Activity Graph -->
+<!-- Activity Graph -->
 <div align="center">
 
 ## 🎮 Activity Quest
 
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=Mrtracker-new&bg_color=1a1b27&color=ff69b4&line=ff69b4&point=ff69b4&area=true&hide_border=true&custom_title=Rolan's%20Coding%20Adventure" />
 
-</div>
-
-<!-- Animated Separators -->
-<div align="center">
-
-<img src="https://media.giphy.com/media/jpVnC65DmYeyRL4LHS/giphy.gif" width="100%" height="20" />
-
 ### 🎌 *"Believe in yourself and all that you are!"* - Anime Wisdom
-
-<img src="https://media.giphy.com/media/jpVnC65DmYeyRL4LHS/giphy.gif" width="100%" height="20" />
 
 </div>
 
