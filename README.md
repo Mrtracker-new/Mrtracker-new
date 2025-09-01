@@ -1,8 +1,14 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=180&section=header&text=Konnichiwa!%20I'm%20Rolan&fontSize=42&fontColor=fff&animation=twinkling&fontAlignY=32" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=200&section=header&text=Konnichiwa!%20I'm%20Rolan&fontSize=50&fontColor=fff&animation=twinkling&fontAlignY=35" />
 
-<img src="https://readme-typing-svg.herokuapp.com/?font=Righteous&size=28&center=true&vCenter=true&width=500&height=80&duration=4000&pause=1500&color=FF0000&multiline=true&lines=CS+Student+%F0%9F%8E%93;Python+Developer+%F0%9F%90%8D;Security+Enthusiast+%F0%9F%9B%A1%EF%B8%8F;Anime+Lover+%F0%9F%8E%8C;Creative+Problem+Solver+%F0%9F%92%A1" />
+<img src="https://readme-typing-svg.herokuapp.com/?font=Righteous&size=30&center=true&vCenter=true&width=650&height=100&duration=2500&pause=800&color=FF4500&multiline=false&lines=CS+Background+%26+Problem+Solver;Python+Developer+%26+Creator;Security+%26+Privacy+Enthusiast;Privacy-Focused+Tool+Creator;Anime+Lover+%26+Dreamer;Building+Tomorrow's+Privacy+Solutions" />
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Focus-Security%20%26%20Privacy-red?style=for-the-badge&logo=shield&logoColor=white" />
+  <img src="https://img.shields.io/badge/Passion-Open%20Source-orange?style=for-the-badge&logo=heart&logoColor=white" />
+  <img src="https://img.shields.io/badge/Goal-Innovation-yellow?style=for-the-badge&logo=lightbulb&logoColor=white" />
+</p>
 
 </div>
 
@@ -15,21 +21,79 @@
 
 </div>
 
+<table align="center">
+<tr>
+<td valign="top" width="50%">
+
+### 🌟 Who Am I?
+
 ```python
 class Rolan:
     def __init__(self):
         self.name = "Rolan"
-        self.role = "CS Student & Python Developer"
+        self.role = "CS Background & Python Developer"
         self.location = "Yellapur, India 🇮🇳"
-        self.interests = ["Steganography", "Security Tools", "File Management"]
-        self.current_focus = "Building secure and creative tools"
+        self.experience = self.get_development_years()
+        self.passion = "Privacy-Focused Solutions"
+        
+    def get_interests(self):
+        return {
+            "🔒": "Privacy & Data Protection",
+            "🛡️": "Security Research & Development",
+            "🐍": "Python Development & Automation",
+            "📁": "File Management & Organization",
+            "🎌": "Anime & Entertainment",
+            "💡": "Creative Problem Solving"
+        }
+    
+    def current_mission(self):
+        return "Building privacy-focused tools for digital security"
         
     def say_hi(self):
-        print("Thanks for dropping by! Hope you find my work interesting ⭐")
+        print("Thanks for visiting! 🌸")
+        print("Let's build something amazing together! ⭐")
 
 me = Rolan()
 me.say_hi()
 ```
+
+</td>
+<td valign="top" width="50%">
+
+### 🎯 My Journey
+
+```yaml
+rolan_stats:
+  background: "💻 CS Background & Developer"
+  coding_since: "2023"
+  favorite_language: "🐍 Python"
+  specialty: "🔒 Privacy-Focused Solutions"
+  
+projects:
+  active:
+    - name: "InVisioVault"
+      type: "Privacy Protection Suite"
+      status: "🚧 In Development"
+    - name: "Security Tools"
+      type: "Data Protection & Privacy"
+      status: "🔥 Ongoing"
+      
+goals_2025:
+  - "🌟 Master Privacy Technologies"
+  - "🛡️ Contribute to Security OSS"
+  - "📚 Share Knowledge with Community"
+  - "🚀 Launch Production-Ready Privacy Tools"
+  
+philosophy: |
+  "Privacy should be accessible to everyone,
+   and digital security is a fundamental right."
+   
+fun_fact: "I name my variables after anime characters! 🎌"
+```
+
+</td>
+</tr>
+</table>
 
 <br clear="both"/>
 
@@ -55,8 +119,8 @@ me.say_hi()
 **Security & Privacy** 🛡️
 ![Security](https://img.shields.io/badge/-Exploring%20%26%20Growing-DC143C?style=for-the-badge&logo=security&logoColor=white)
 
-**Steganography** 🔐
-![Steganography](https://img.shields.io/badge/-Passionate%20About-B22222?style=for-the-badge&logo=ghost&logoColor=white)
+**Privacy Technologies** 🔒
+![Privacy](https://img.shields.io/badge/-Building%20Solutions-B22222?style=for-the-badge&logo=shield&logoColor=white)
 
 **Creative Coding** 💡
 ![Problem Solving](https://img.shields.io/badge/-Always%20Improving-8B0000?style=for-the-badge&logo=lightbulb&logoColor=white)
@@ -69,21 +133,87 @@ me.say_hi()
 
 <div align="center">
 
+### 🔥 My Signature Work
+
+<table align="center">
+<tr>
+<td align="center" valign="top" width="50%">
+
 <a href="https://github.com/Mrtracker-new/InvisioVault_R">
-  <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=Mrtracker-new&repo=InvisioVault_R&theme=tokyonight&hide_border=true&border_radius=15" />
+  <img src="https://github-readme-stats.vercel.app/api/pin/?username=Mrtracker-new&repo=InvisioVault_R&theme=tokyonight&hide_border=true&border_radius=15" />
 </a>
+
+<div align="left">
+
+**🔐 InVisioVault** - *The crown jewel of my work*  
+🎯 Advanced steganography suite for secure data hiding  
+🛡️ Multi-algorithm support with anti-detection features  
+🐍 Built with Python, focusing on security & privacy  
+
+</div>
+
+</td>
+<td align="center" valign="top" width="50%">
 
 <a href="https://github.com/Mrtracker-new/BAR">
-  <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=Mrtracker-new&repo=BAR&theme=tokyonight&hide_border=true&border_radius=15" />
+  <img src="https://github-readme-stats.vercel.app/api/pin/?username=Mrtracker-new&repo=BAR&theme=tokyonight&hide_border=true&border_radius=15" />
 </a>
+
+<div align="left">
+
+**🔥 BAR (Burn After Reading)** - *Secure file management with self-destruction*  
+🛡️ Advanced security features with self-destruction capabilities  
+💻 Offline-only operation, no server dependencies  
+🔒 Sensitive data never leaves your machine
+
+</div>
+
+</td>
+</tr>
+<tr>
+<td align="center" valign="top" width="50%">
 
 <a href="https://github.com/Mrtracker-new/Sortify">
-  <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=Mrtracker-new&repo=Sortify&theme=tokyonight&hide_border=true&border_radius=15" />
+  <img src="https://github-readme-stats.vercel.app/api/pin/?username=Mrtracker-new&repo=Sortify&theme=tokyonight&hide_border=true&border_radius=15" />
 </a>
 
+<div align="left">
+
+**📂 Sortify** - *Organize with intelligence*  
+🧩 AI-powered file sorting and categorization  
+📊 Pattern recognition for smart organization  
+🎮 User-friendly interface with custom rules  
+
+</div>
+
+</td>
+<td align="center" valign="top" width="50%">
+
 <a href="https://github.com/Mrtracker-new/RNR">
-  <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=Mrtracker-new&repo=RNR&theme=tokyonight&hide_border=true&border_radius=15" />
+  <img src="https://github-readme-stats.vercel.app/api/pin/?username=Mrtracker-new&repo=RNR&theme=tokyonight&hide_border=true&border_radius=15" />
 </a>
+
+<div align="left">
+
+**🌐 RNR (Portfolio Website)** - *My digital showcase*  
+✨ Personal portfolio showcasing my projects and skills  
+🎨 Modern design with interactive elements  
+📱 Responsive layout for all devices  
+
+</div>
+
+</td>
+</tr>
+</table>
+
+### 🌟 Project Stats & Impact
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Projects%20Created-10%2B-success?style=for-the-badge&logo=github&logoColor=white" />
+  <img src="https://img.shields.io/badge/Lines%20of%20Code-50K%2B-informational?style=for-the-badge&logo=code&logoColor=white" />
+  <img src="https://img.shields.io/badge/Focus%20Area-Security%20%26%20Privacy-critical?style=for-the-badge&logo=shield&logoColor=white" />
+  <img src="https://img.shields.io/badge/Always%20Learning-New%20Technologies-blueviolet?style=for-the-badge&logo=atom&logoColor=white" />
+</p>
 
 </div>
 
@@ -111,12 +241,12 @@ me.say_hi()
 ## 🎌 What I'm Up To
 
 ```
-🔐 Currently Building: InvisioVault - My Steganography Journey
-🌱 Learning: Security Concepts & Web Technologies  
-💡 Exploring: Creative ways to hide and protect data
-🎯 Dream: Contributing to open-source security projects
-⚡ Fun fact: I love combining security with creativity!
-🎮 Anime Quote: "Hard work is necessary to become strong!"
+🔒 Currently Building: InVisioVault - Privacy Protection Suite
+🌱 Learning: Advanced Security Concepts & Privacy Technologies  
+💡 Exploring: Innovative ways to protect digital privacy
+🎯 Dream: Contributing to open-source privacy & security projects
+⚡ Fun fact: I believe privacy tools should be accessible to everyone!
+💭 Quote: "Hard work is necessary to become strong!"
 ```
 
 </div>
@@ -142,27 +272,6 @@ me.say_hi()
 
 ---
 
-<div align="center">
-
-### 💫 *"Code is like humor. When you have to explain it, it's bad."* – Cory House
-
-<img src="https://media.giphy.com/media/LnQjpWaON8nhr21vNW/giphy.gif" width="60"> 
-<em><b>I love connecting with different people</b> so if you want to say <b>hi, I'll be happy to meet you more!</b> 😊</em>
-
-</div>
-
----
-
-<div align="center">
-  
-## 🎭 Coding Philosophy
-
-### 🌸 *"The only way to do great work is to love what you do"* ✨
-
-*"Code is poetry written in logic"* 💫
-
-</div>
-
 <!-- Activity Graph -->
 <div align="center">
 
@@ -170,6 +279,35 @@ me.say_hi()
 
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=Mrtracker-new&bg_color=1a1b27&color=ff0000&line=ff0000&point=ff0000&area=true&hide_border=true&custom_title=Rolan's%20Coding%20Adventure" />
 
-### 🎌 *"Fear is not evil. It shows you your weakness… and once you know it, you can become stronger."* – Gildarts, Fairy Tail
+</div>
+
+---
+
+<div align="center">
+
+## 🌸 Thank You for Visiting!
+
+<img src="https://user-images.githubusercontent.com/74038190/216644497-1951db19-8f3d-4e44-ac08-8e9d7e0d94a7.gif" width="200"/>
+
+### 💫 *"The only way to do great work is to love what you do"*
+
+<p>
+🌟 <strong>Star</strong> my repositories if you find them interesting!<br>
+🔥 <strong>Follow</strong> me for more exciting projects!<br>
+💬 <strong>Reach out</strong> if you want to collaborate!<br>
+</p>
+
+<img src="https://media.giphy.com/media/LnQjpWaON8nhr21vNW/giphy.gif" width="60"> 
+<em><b>I love connecting with different people</b> so if you want to say <b>hi, I'll be happy to meet you more!</b> 😊</em>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=120&section=footer" />
+
+</div>
+
+---
+
+<div align="center">
+
+<sub>🚀 <strong>Made with ❤️ by Rolan</strong> | 🌟 <strong>Powered by curiosity and anime</strong> | 🔐 <strong>Secured with passion</strong></sub>
 
 </div>
