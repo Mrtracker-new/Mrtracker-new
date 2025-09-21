@@ -71,11 +71,11 @@ rolan_stats:
   
 projects:
   active:
-    - name: "InVisioVault"
+    - name: "BAR"
       type: "Privacy Protection Suite"
       status: "🚧 In Development"
     - name: "Security Tools"
-      type: "Data Protection & Privacy"
+      type: "Self-Destruction"
       status: "🔥 Ongoing"
       
 goals_2025:
