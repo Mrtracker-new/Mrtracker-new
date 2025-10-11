@@ -413,7 +413,7 @@ I'm especially interested in projects involving:<br>
 🔐 Privacy-enhancing technologies (PETs)<br>
 🛡️ Security tools for journalists, activists, and at-risk communities<br>
 🌍 Open-source security initiatives<br>
-📚 Privacy education and awareness<br>
+📚 Privacy education and awareness.<br>
 </p>
 
 <img src="https://media.giphy.com/media/LnQjpWaON8nhr21vNW/giphy.gif" width="60"> 
