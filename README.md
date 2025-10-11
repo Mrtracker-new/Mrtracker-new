@@ -4,7 +4,7 @@
 
 # 🎌 Rolan | ローラン
 
-<img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&size=22&duration=3000&pause=1000&color=FF6B6B&center=true&vCenter=true&width=600&lines=Privacy+Engineer+%7C+プライバシーエンジニア;Anime+Enthusiast+%7C+アニメファン;Python+Developer+%7C+Python開発者;Building+Privacy+Tools+%7C+ツール開発中" />
+<img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&size=22&duration=3000&pause=1000&color=FF6B6B&center=true&vCenter=true&width=600&lines=Privacy+Engineer;Anime+Enthusiast;Python+Developer;Building+Privacy+Tools" />
 
 <p align="center">
   <img src="https://img.shields.io/badge/🔐_Privacy-First-ff6b6b?style=for-the-badge" />
