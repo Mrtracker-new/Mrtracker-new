@@ -52,68 +52,103 @@ me = Rolan()
 
 ## 🚀 Featured Projects
 
-<table>
-<tr>
-<td width="50%">
+<div align="center">
 
-### 🔒 [InVisioVault](https://github.com/Mrtracker-new/InvisioVault_R)
-**Advanced Steganography Suite**
-- Multi-format steganography (images, audio, video, docs)
-- AES-256 encryption + multiple hiding algorithms
-- Zero-knowledge architecture - data never leaves your device
-- CLI & GUI interfaces
+### 🔒 [InvisioVault](https://github.com/Mrtracker-new/InvisioVault)
 
-</td>
-<td width="50%">
+**Your digital secret-keeping Swiss Army knife**
+
+<img src="https://img.shields.io/badge/Steganography-LSB_Encoding-blueviolet?style=for-the-badge" /> <img src="https://img.shields.io/badge/Polyglot-Dual_Format-ff69b4?style=for-the-badge" /> <img src="https://img.shields.io/badge/Encryption-AES--256-red?style=for-the-badge" />
+
+```
+🖼️ Hide files inside images  |  🤯 Create JPG+ZIP dual-format files  |  🔐 Zero-knowledge privacy
+```
+
+Built with React + Flask • Password-protected • Any file type supported
+
+---
 
 ### 🔥 [BAR](https://github.com/Mrtracker-new/BAR)
-**Burn After Reading - Self-Destructing Files**
-- Auto-delete files after viewing with timer
-- Military-grade secure deletion (DoD 5220.22-M)
-- 100% offline, no cloud dependency
-- Perfect for sensitive documents
 
-</td>
-</tr>
-<tr>
-<td width="50%">
+**Burn After Reading - Self-destructing files for maximum security**
+
+<img src="https://img.shields.io/badge/Auto--Delete-Timer_Based-orange?style=for-the-badge" /> <img src="https://img.shields.io/badge/Secure-DoD_5220.22--M-red?style=for-the-badge" /> <img src="https://img.shields.io/badge/100%25-Offline-green?style=for-the-badge" />
+
+```
+⏱️ Auto-delete after viewing  |  🛡️ Military-grade secure deletion  |  🔒 Zero cloud dependency
+```
+
+Perfect for sensitive documents • Configurable timers • Unrecoverable deletion • 🌐 Web version coming soon!
+
+---
 
 ### 📂 [Sortify](https://github.com/Mrtracker-new/Sortify)
-**Intelligent File Organizer**
-- Smart categorization with metadata analysis
-- Custom rules engine with regex
-- Batch processing for thousands of files
-- Undo support & dry-run mode
 
-</td>
-<td width="50%">
+**Intelligent file organizer with smart categorization**
+
+<img src="https://img.shields.io/badge/Smart-AI_Categorization-blue?style=for-the-badge" /> <img src="https://img.shields.io/badge/Rules-Regex_Engine-purple?style=for-the-badge" /> <img src="https://img.shields.io/badge/Batch-Thousands-success?style=for-the-badge" />
+
+```
+🧠 Metadata analysis  |  ⚙️ Custom rules engine  |  ↩️ Undo support + dry-run mode
+```
+
+Handles thousands of files • Regex patterns • Smart sorting algorithms
+
+---
 
 ### 🌐 [RNR Portfolio](https://github.com/Mrtracker-new/RNR)
-**Personal Showcase Website**
-- Interactive project demos
-- Anime-inspired design
-- Fully responsive
-- Dark mode support
 
-</td>
-</tr>
-</table>
+**Personal showcase website with anime-inspired design**
 
-**Project Philosophy:** Privacy-first, security by design, well-documented, cross-platform ✨
+<img src="https://img.shields.io/badge/Interactive-Project_Demos-ff69b4?style=for-the-badge" /> <img src="https://img.shields.io/badge/Design-Anime_Inspired-blueviolet?style=for-the-badge" /> <img src="https://img.shields.io/badge/Responsive-Mobile_Ready-success?style=for-the-badge" />
+
+```
+🎮 Interactive demos  |  🌸 Beautiful anime aesthetics  |  🌙 Dark mode by default
+```
+
+Fully responsive • Smooth animations • Modern web tech
+
+</div>
+
+<div align="center">
+
+**✨ Philosophy:** Privacy-first • Security by design • Well-documented • Cross-platform
+
+</div>
 
 ---
 
 ## 💻 Tech Stack
 
-**Languages:** Python • JavaScript • HTML/CSS • Bash
+<div align="center">
 
-**Security:** Cryptography • OpenSSL • Steganography • Secure File Operations
+```yaml
+Languages:
+  - Python (Advanced)
+  - JavaScript (Proficient)
+  - HTML/CSS (Proficient)
+  - Bash (Intermediate)
 
-**Python Expertise:** `cryptography` • `tkinter` • `PIL` • `pandas` • `numpy` • `flask`
+Security:
+  - Cryptography & AES-256 Encryption
+  - Steganography & LSB Encoding
+  - OpenSSL & Secure Operations
 
-**Tools:** Git • VS Code • Linux • Windows
+Python Stack:
+  - cryptography | flask | tkinter
+  - PIL | pandas | numpy
 
-**Learning:** Rust • Docker • PostgreSQL • Zero-Knowledge Proofs
+Tools & Platforms:
+  - Git | VS Code | Linux | Windows
+
+Currently Learning:
+  - Rust 🦀
+  - Docker 🐳
+  - PostgreSQL 🐘
+  - Zero-Knowledge Proofs 🔍
+```
+
+</div>
 
 ---
 
@@ -136,27 +171,56 @@ me = Rolan()
 
 ---
 
-## 🎯 What I'm Up To
+## 🎯 Current Focus
 
-**🔧 Maintaining:** All my open-source privacy & security tools
+<div align="center">
 
-**📚 Learning:** Advanced cryptography • Rust • Forensics evasion
+<table>
+<tr>
+<td align="center" width="25%">
 
-**🎌 Currently Watching:** Always hunting for new anime recommendations!
+**🔧 Maintaining**
 
-**🌟 2025 Goals:** Contribute to major OSS projects • Mentor developers • Keep building privacy tools
+Open-source privacy  
+& security tools
 
-**💭 Mantra:** *Code with purpose. Build with passion. Secure with care. Plus Ultra! 💪*
+</td>
+<td align="center" width="25%">
 
-**🎵 Coding Vibes:** Lo-fi beats 🎧 + Anime OSTs 🎶 = Maximum productivity ⚡
+**📚 Learning**
+
+Advanced crypto  
+Rust • Docker
+
+</td>
+<td align="center" width="25%">
+
+**🌟 2025 Goals**
+
+OSS contributions  
+Mentoring devs
+
+</td>
+<td align="center" width="25%">
+
+**🎵 Coding With**
+
+Lo-fi beats  
++ Anime OSTs
+
+</td>
+</tr>
+</table>
+
+> *"Code with purpose. Build with passion. Secure with care. Plus Ultra!"* 💪
+
+</div>
 
 ---
 
 ## 🌸 Let's Connect!
 
 <div align="center">
-
-<img src="https://media.giphy.com/media/LnQjpWaON8nhr21vNW/giphy.gif" width="60">
 
 <a href="https://github.com/Mrtracker-new">
   <img src="https://img.shields.io/badge/GitHub-FF0000?style=for-the-badge&logo=github&logoColor=white" />
@@ -170,27 +234,19 @@ me = Rolan()
 
 <br><br>
 
-Open to collaborating on privacy & security projects! 🚀  
-**Bonus points if you're also an anime fan!** 🎌
+**Open to collaborating on privacy & security projects!** 🚀  
+Bonus points if you're also an anime fan! 🎌
 
-Especially interested in: Privacy-enhancing tech • Security tools for at-risk communities • Open-source initiatives
-
-<br>
-
-### 💫 *"Privacy is not about having something to hide. It's about having something to protect."*
-
-### 🛡️ *"In a world full of data breaches, be someone's firewall!"*
-
-⭐ Star my repos if useful • 🤝 PRs welcome • 💬 Open issues for bugs/features  
-🍜 Let's chat about anime and code! • 🎮 Always up for tech + anime discussions
-
-<br>
-
-<img src="https://komarev.com/ghpvc/?username=Mrtracker-new&label=Profile%20Views&color=FF0000&style=for-the-badge" />
+*Especially interested in:*  
+Privacy-enhancing tech • Security tools for at-risk communities • Open-source initiatives
 
 ---
 
-### 🎭 Fun Fact
+### 💫 *"Privacy is not about having something to hide. It's about having something to protect."*
+
+⭐ Star my repos if useful • 🤝 PRs welcome • 💬 Open issues for bugs/features
+
+<br>
 
 ```javascript
 const myLife = {
@@ -201,9 +257,12 @@ const myLife = {
   weekend: '🎮 Gaming + 📚 Reading manga',
   always: '🎵 Anime OSTs on loop'
 };
-
-// Yes, I debug code while listening to anime openings! 🎶
+// Debugging code while listening to anime openings! 🎶
 ```
+
+<br>
+
+<img src="https://komarev.com/ghpvc/?username=Mrtracker-new&label=Profile%20Views&color=FF0000&style=for-the-badge" />
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=100&section=footer" />
 
