@@ -182,7 +182,7 @@ Currently Learning:
 **🔧 Maintaining**
 
 Open-source privacy  
-& security tools
+& security tools.
 
 </td>
 <td align="center" width="25%">
