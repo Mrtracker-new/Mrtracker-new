@@ -156,16 +156,34 @@ Currently Learning:
 
 <div align="center">
 
-<img width="49%" src="https://github-readme-stats.vercel.app/api?username=Mrtracker-new&show_icons=true&theme=tokyonight&hide_border=true" />
-<img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=Mrtracker-new&theme=tokyonight&hide_border=true" />
+<img width="49%" height="195px" src="https://github-readme-stats.vercel.app/api?username=Mrtracker-new&show_icons=true&count_private=true&hide_border=true&title_color=ff0000&icon_color=ff0000&text_color=c9cacc&bg_color=0d1117" />
+<img width="49%" height="195px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Mrtracker-new&layout=compact&hide_border=true&title_color=ff0000&text_color=c9cacc&bg_color=0d1117&langs_count=8" />
 
 </div>
 
 <div align="center">
 
-### 🎮 Contribution Graph
+<img src="https://streak-stats.demolab.com/?user=Mrtracker-new&theme=dark&hide_border=true&background=0D1117&ring=FF0000&fire=FF0000&currStreakLabel=FF0000&sideNums=FF0000&sideLabels=C9CACC&dates=C9CACC" width="59%" />
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=Mrtracker-new&bg_color=1a1b27&color=ff0000&line=ff0000&point=ff0000&area=true&hide_border=true&custom_title=Rolan's%20Coding%20Adventure" width="100%" />
+</div>
+
+<div align="center">
+
+### 📊 Detailed Stats
+
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Mrtracker-new&theme=radical" width="100%" />
+
+</div>
+
+<div align="center">
+
+### 🎮 Contribution Snake
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Mrtracker-new/Mrtracker-new/output/github-contribution-grid-snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Mrtracker-new/Mrtracker-new/output/github-contribution-grid-snake.svg">
+  <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/Mrtracker-new/Mrtracker-new/output/github-contribution-grid-snake.svg">
+</picture>
 
 </div>
 
@@ -182,7 +200,7 @@ Currently Learning:
 **🔧 Maintaining**
 
 Open-source privacy  
-& security tools.
+& security tools
 
 </td>
 <td align="center" width="25%">
