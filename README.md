@@ -156,36 +156,23 @@ Currently Learning:
 
 <div align="center">
 
-<img width="49%" height="195px" src="https://github-readme-stats.vercel.app/api?username=Mrtracker-new&show_icons=true&count_private=true&hide_border=true&title_color=ff0000&icon_color=ff0000&text_color=c9cacc&bg_color=0d1117" />
-<img width="49%" height="195px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Mrtracker-new&layout=compact&hide_border=true&title_color=ff0000&text_color=c9cacc&bg_color=0d1117&langs_count=8" />
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Mrtracker-new&theme=radical" width="80%" />
 
 </div>
 
 <div align="center">
 
-<img src="https://streak-stats.demolab.com/?user=Mrtracker-new&theme=dark&hide_border=true&background=0D1117&ring=FF0000&fire=FF0000&currStreakLabel=FF0000&sideNums=FF0000&sideLabels=C9CACC&dates=C9CACC" width="59%" />
+<img width="24%" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Mrtracker-new&theme=radical" />
+<img width="24%" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Mrtracker-new&theme=radical" />
+<img width="24%" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=Mrtracker-new&theme=radical" />
+<img width="24%" src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=Mrtracker-new&theme=radical" />
+
+<br><br>
+
+<img src="https://komarev.com/ghpvc/?username=Mrtracker-new&label=Profile%20Views&color=FF0000&style=flat-square" />
 
 </div>
 
-<div align="center">
-
-### 📊 Detailed Stats
-
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Mrtracker-new&theme=radical" width="100%" />
-
-</div>
-
-<div align="center">
-
-### 🎮 Contribution Snake
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Mrtracker-new/Mrtracker-new/output/github-contribution-grid-snake-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Mrtracker-new/Mrtracker-new/output/github-contribution-grid-snake.svg">
-  <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/Mrtracker-new/Mrtracker-new/output/github-contribution-grid-snake.svg">
-</picture>
-
-</div>
 
 ---
 
@@ -279,8 +266,6 @@ const myLife = {
 ```
 
 <br>
-
-<img src="https://komarev.com/ghpvc/?username=Mrtracker-new&label=Profile%20Views&color=FF0000&style=for-the-badge" />
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=100&section=footer" />
 
