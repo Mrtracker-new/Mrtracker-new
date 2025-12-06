@@ -161,7 +161,7 @@ Currently Learning:
 </div>
 
 <div align="center">
-
+<img src="https://streak-stats.demolab.com?user=Mrtracker-new&theme=radical&hide_border=false&border_radius=10" width="35%" />
 <img width="24%" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Mrtracker-new&theme=radical" />
 <img width="24%" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Mrtracker-new&theme=radical" />
 <img width="24%" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=Mrtracker-new&theme=radical" />
