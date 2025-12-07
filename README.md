@@ -156,18 +156,21 @@ Currently Learning:
 
 <div align="center">
 
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Mrtracker-new&theme=radical" width="80%" />
+### 🔥 Contribution Streak
+<img src="https://streak-stats.demolab.com?user=Mrtracker-new&theme=radical&hide_border=false&border_radius=10" width="60%" />
 
-</div>
+### 📈 Activity & Statistics
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=Mrtracker-new&theme=radical" width="32%" />
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Mrtracker-new&theme=radical" width="32%" />
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Mrtracker-new&theme=radical" width="32%" />
 
-<div align="center">
-<img src="https://streak-stats.demolab.com?user=Mrtracker-new&theme=radical&hide_border=false&border_radius=10" width="35%" />
-<img width="24%" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Mrtracker-new&theme=radical" />
-<img width="24%" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Mrtracker-new&theme=radical" />
-<img width="24%" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=Mrtracker-new&theme=radical" />
-<img width="24%" src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=Mrtracker-new&theme=radical" />
+### 📊 Contribution Graph
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=Mrtracker-new&theme=react-dark&hide_border=false&area=true&custom_title=Contribution%20Activity" width="95%" />
 
-<br><br>
+### 🏆 Achievements
+<img src="https://github-profile-trophy.vercel.app/?username=Mrtracker-new&theme=radical&no-frame=false&row=1&column=7" width="90%" />
+
+<br>
 
 <img src="https://komarev.com/ghpvc/?username=Mrtracker-new&label=Profile%20Views&color=FF0000&style=flat-square" />
 
