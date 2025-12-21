@@ -157,7 +157,7 @@ Currently Learning:
 <div align="center">
 
 ### 🔥 Contribution Streak
-<img src="https://streak-stats.demolab.com?user=Mrtracker-new&theme=radical&hide_border=false&border_radius=10" width="60%" />
+<img src="https://nirzak-streak-stats.vercel.app/?user=Mrtracker-new&theme=radical&hide_border=false&border_radius=10" width="60%" />
 
 ### 📈 Activity & Statistics
 <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=Mrtracker-new&theme=radical" width="32%" />
@@ -167,8 +167,8 @@ Currently Learning:
 ### 📊 Contribution Graph
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=Mrtracker-new&theme=react-dark&hide_border=false&area=true&custom_title=Contribution%20Activity" width="95%" />
 
-### 🏆 Achievements
-<img src="https://github-profile-trophy.vercel.app/?username=Mrtracker-new&theme=radical&no-frame=false&row=1&column=7" width="90%" />
+### 🏆 Achievements & Trophies
+<img src="https://github-trophies.vercel.app/?username=Mrtracker-new&theme=radical&no-frame=false&no-bg=false&margin-w=4&row=2&column=4" width="90%" />
 
 <br>
 
