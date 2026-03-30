@@ -1,94 +1,100 @@
 <div align="center">
 
-# 👋 Rolan Lobo
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:1a1a2e,100:16213e&height=200&section=header&text=Rolan%20Lobo&fontSize=60&fontColor=58a6ff&fontAlignY=38&desc=Python%20Developer%20%E2%80%A2%20Open%20Source%20Builder%20%E2%80%A2%20Security%20Enthusiast&descColor=8b949e&descAlignY=58&animation=fadeIn" />
 
-### Privacy Engineer • Python Developer • Security Advocate
+<br/>
 
-*Building tools that protect digital freedom*
+[![Portfolio](https://img.shields.io/badge/🌐_Portfolio-rolan--rnr.netlify.app-4285F4?style=for-the-badge&labelColor=0d1117)](https://rolan-rnr.netlify.app/)
+&nbsp;
+[![GitHub](https://img.shields.io/badge/GitHub-Mrtracker--new-181717?style=for-the-badge&logo=github&logoColor=white&labelColor=0d1117)](https://github.com/Mrtracker-new)
+&nbsp;
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=0d1117)](https://www.linkedin.com/in/rolan-lobo-93368a239/)
+&nbsp;
+[![Email](https://img.shields.io/badge/Email-Contact_Me-D14836?style=for-the-badge&logo=gmail&logoColor=white&labelColor=0d1117)](mailto:rolanlobo901@gmail.com)
 
-[![Portfolio](https://img.shields.io/badge/🌐_Portfolio-Visit_Website-4285F4?style=for-the-badge)](https://rolan-rnr.netlify.app/)
-
-[![GitHub](https://img.shields.io/badge/GitHub-Mrtracker--new-181717?style=flat&logo=github)](https://github.com/Mrtracker-new)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=flat&logo=linkedin)](https://www.linkedin.com/in/rolan-lobo-93368a239/)
-[![Email](https://img.shields.io/badge/Email-rolanlobo901@gmail.com-D14836?style=flat&logo=gmail&logoColor=white)](mailto:rolanlobo901@gmail.com)
+<img src="https://komarev.com/ghpvc/?username=Mrtracker-new&label=Profile+Views&color=58a6ff&style=flat-square" alt="profile views" />
 
 </div>
 
 ---
 
-## 🎯 About
-
-Privacy-focused software engineer from India specializing in **cryptography**, **steganography**, and **security tools**. I build open-source solutions that prioritize user privacy and digital freedom.
+## 🧠 About Me
 
 ```python
-focus = ["Cryptography 🔐", "Steganography 🖼️", "Security Tools 🛡️"]
-currently_learning = ["Rust", "Docker", "Zero-Knowledge Proofs"]
+class RolanLobo:
+    role        = "Python Developer & Open Source Builder"
+    location    = "India 🇮🇳"
+    focus       = ["Cryptography 🔐", "Steganography 🖼️", "Security Tools 🛡️"]
+    learning    = ["Rust 🦀", "Docker 🐳", "Zero-Knowledge Proofs 🔏"]
+    open_to     = ["Collaboration", "Security Roles", "Remote Work"]
+    philosophy  = "Privacy-First, Always. Secure by Design."
 ```
+
+I'm a privacy-focused software engineer who builds open-source tools that protect digital freedoms. My work sits at the intersection of **cryptography**, **steganography**, and **practical security engineering** — turning complex concepts into tools real people can use.
 
 ---
 
-## 💻 Tech Stack
+## 🛠️ Tech Stack
 
 <div align="center">
 
 **Languages**
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![Bash](https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white)
-
-**Security & Cryptography**
-
-![Cryptography](https://img.shields.io/badge/Cryptography-FF6B6B?style=for-the-badge&logo=letsencrypt&logoColor=white)
-![Steganography](https://img.shields.io/badge/Steganography-9B59B6?style=for-the-badge&logo=keybase&logoColor=white)
-![AES-256](https://img.shields.io/badge/AES--256-E74C3C?style=for-the-badge&logo=windowsdefender&logoColor=white)
-![OpenSSL](https://img.shields.io/badge/OpenSSL-721412?style=for-the-badge&logo=openssl&logoColor=white)
+[![Skills](https://skillicons.dev/icons?i=python,js,html,css,bash,rust&theme=dark)](https://skillicons.dev)
 
 **Tools & Platforms**
 
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
-![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
+[![Skills](https://skillicons.dev/icons?i=git,vscode,linux,docker,postgres,github&theme=dark)](https://skillicons.dev)
 
-**Currently Learning**
+</div>
 
-![Rust](https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+### 💡 What I Do
+
+| | |
+|---|---|
+| 🔨 **Build CLI & desktop tools** | Python apps people can actually download and run |
+| 🔐 **Hide & protect data** | Steganography tools that conceal files inside images |
+| 🌐 **Ship web projects** | From landing pages to full portfolio sites |
+| 📦 **Write clean, open-source code** | Readable, documented, and free for everyone |
+| 🛡️ **Think about security** | Every project is built with privacy in mind |
+
+---
+
+## 📊 GitHub Stats
+
+<div align="center">
+
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=Mrtracker-new&theme=github_dark" width="38%" />
+&nbsp;
+<img src="https://streak-stats.demolab.com?user=Mrtracker-new&theme=github-dark-blue&hide_border=true&background=0d1117&ring=58a6ff&fire=58a6ff&currStreakLabel=58a6ff" width="55%" />
+
+</div>
+
+<div align="center">
+
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Mrtracker-new&theme=github_dark" width="95%" />
+
+</div>
+
+<div align="center">
+
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Mrtracker-new&theme=github_dark" width="32%" />
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Mrtracker-new&theme=github_dark" width="32%" />
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=Mrtracker-new&theme=github_dark&utcOffset=5.5" width="32%" />
 
 </div>
 
 ---
 
-## 📊 GitHub Activity
+## 🎯 What I'm Looking For
 
 <div align="center">
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=Mrtracker-new&theme=react-dark&hide_border=true&area=true" width="95%" />
-
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Mrtracker-new&layout=compact&theme=react&hide_border=true&langs_count=6" width="34.5%" />
-<img src="https://nirzak-streak-stats.vercel.app/?user=Mrtracker-new&theme=react&hide_border=true" width="48%" />
-
-</div>
-
----
-
-## 🎯 Looking For
-
-**Collaborations:** Open-source privacy tools • Security projects • Anti-surveillance tech  
-**Opportunities:** Security engineering roles • Privacy-focused positions • Remote work  
-**Exploring:** Zero-knowledge systems • E2E encryption • Decentralized tech
-
----
-
-<div align="center">
-
-### 📂 Want to Learn More?
-
-**[Visit my Portfolio](https://rolan-rnr.netlify.app/)** for detailed project breakdowns, experience, and achievements
+| 🤝 Collaborations | 💼 Opportunities | 🔭 Exploring |
+|---|---|---|
+| Open-source privacy tools | Security engineering roles | Zero-knowledge proofs |
+| Anti-surveillance projects | Privacy-focused positions | End-to-end encryption |
+| CTF & security research | Remote-friendly teams | Decentralized tech |
 
 </div>
 
@@ -96,10 +102,14 @@ currently_learning = ["Rust", "Docker", "Zero-Knowledge Proofs"]
 
 <div align="center">
 
-### 🤝 Let's Connect
+### 📂 See My Full Work
 
-Open to collaboration on privacy and security projects
+**[Visit My Portfolio →](https://rolan-rnr.netlify.app/)** &nbsp;|&nbsp; Detailed projects, experience & achievements
 
-*Privacy-First, Always • Secure by Design*
+<br/>
+
+*"The price of privacy is eternal vigilance."*
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:16213e,50:1a1a2e,100:0d1117&height=100&section=footer" />
 
 </div>
