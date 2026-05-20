@@ -1,12 +1,9 @@
 name: GitHub Metrics
 
 on:
-  # Run daily at midnight UTC
   schedule:
-    - cron: "0 0 * * *"
-  # Allow manual trigger from Actions tab
-  workflow_dispatch:
-  # Also run on every push to main/master
+    - cron: "0 0 * * *"   # Daily at midnight UTC
+  workflow_dispatch:        # Manual trigger from Actions tab
   push:
     branches: ["main", "master"]
 
@@ -14,14 +11,17 @@ jobs:
   github-metrics:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: write       # Required to commit the generated SVGs
 
     steps:
-      # ── 1. General stats card ────────────────────────────────────────────
+      # ── 1. General stats + languages ─────────────────────────────────────
       - name: Generate stats card
-        uses: lowlighter/metrics@latest
+        uses: lowlighter/metrics@v3.34
         with:
           token: ${{ secrets.METRICS_TOKEN }}
+          # Use the built-in GITHUB_TOKEN for the commit — this avoids the
+          # "sha wasn't supplied" error that affects custom tokens on @latest
+          committer_token: ${{ secrets.GITHUB_TOKEN }}
           filename: assets/metrics-stats.svg
           base: header, activity, community, repositories
           plugin_languages: yes
@@ -31,29 +31,27 @@ jobs:
           config_timezone: Asia/Kolkata
           config_display: large
           config_animations: yes
-          # Dark theme matching the README palette
-          config_template: classic
-          config_padding: 6%, 10%
 
       # ── 2. Achievements card ─────────────────────────────────────────────
       - name: Generate achievements card
-        uses: lowlighter/metrics@latest
+        uses: lowlighter/metrics@v3.34
         with:
           token: ${{ secrets.METRICS_TOKEN }}
+          committer_token: ${{ secrets.GITHUB_TOKEN }}
           filename: assets/metrics-achievements.svg
           base: ""
           plugin_achievements: yes
           plugin_achievements_display: detailed
           plugin_achievements_secrets: yes
-          plugin_achievements_ignored: ""
           config_timezone: Asia/Kolkata
           config_animations: yes
 
-      # ── 3. Contribution calendar (isometric) ────────────────────────────
+      # ── 3. Isometric contribution calendar ───────────────────────────────
       - name: Generate isometric calendar
-        uses: lowlighter/metrics@latest
+        uses: lowlighter/metrics@v3.34
         with:
           token: ${{ secrets.METRICS_TOKEN }}
+          committer_token: ${{ secrets.GITHUB_TOKEN }}
           filename: assets/metrics-calendar.svg
           base: ""
           plugin_isocalendar: yes
