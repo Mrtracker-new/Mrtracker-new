@@ -64,19 +64,13 @@ I'm a privacy-focused software engineer who builds open-source tools that protec
 
 <div align="center">
 
-<img src="./assets/metrics-stats.svg" alt="GitHub Metrics" width="100%" />
+<img src="./assets/metrics-stats.svg" alt="GitHub Stats & Languages" width="100%" />
 
 </div>
 
 <div align="center">
 
 <img src="./assets/metrics-calendar.svg" alt="Contribution Calendar" width="100%" />
-
-</div>
-
-<div align="center">
-
-<img src="./assets/metrics-achievements.svg" alt="Achievements" width="100%" />
 
 </div>
 
