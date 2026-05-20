@@ -64,23 +64,19 @@ I'm a privacy-focused software engineer who builds open-source tools that protec
 
 <div align="center">
 
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=Mrtracker-new&theme=github_dark" width="38%" />
-&nbsp;
-<img src="https://streak-stats.demolab.com?user=Mrtracker-new&theme=github-dark-blue&hide_border=true&background=0d1117&ring=58a6ff&fire=58a6ff&currStreakLabel=58a6ff" width="55%" />
+<img src="./assets/metrics-stats.svg" alt="GitHub Metrics" width="100%" />
 
 </div>
 
 <div align="center">
 
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Mrtracker-new&theme=github_dark" width="95%" />
+<img src="./assets/metrics-calendar.svg" alt="Contribution Calendar" width="100%" />
 
 </div>
 
 <div align="center">
 
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Mrtracker-new&theme=github_dark" width="32%" />
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Mrtracker-new&theme=github_dark" width="32%" />
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=Mrtracker-new&theme=github_dark&utcOffset=5.5" width="32%" />
+<img src="./assets/metrics-achievements.svg" alt="Achievements" width="100%" />
 
 </div>
 
