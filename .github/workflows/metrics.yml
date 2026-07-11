@@ -14,18 +14,13 @@ jobs:
       contents: write
 
     steps:
-      # ── Card 1: Header + Languages ───────────────────────────────────────
-      # Clean profile header with a language breakdown bar.
-      # Only `header` base — no activity/community/repos bloat.
       - name: Stats and languages card
         uses: lowlighter/metrics@v3.34
         with:
           token: ${{ secrets.METRICS_TOKEN }}
           committer_token: ${{ secrets.GITHUB_TOKEN }}
           filename: assets/metrics-stats.svg
-          # Only show the header (name, avatar, join date, followers, stars)
           base: header
-          # Append a clean top-languages section
           plugin_languages: yes
           plugin_languages_indepth: yes
           plugin_languages_limit: 8
@@ -36,9 +31,6 @@ jobs:
           config_display: large
           config_animations: yes
 
-      # ── Card 2: Isometric contribution calendar ──────────────────────────
-      # Full-year calendar — shows contribution activity beautifully.
-      # `base: ""` means NO header/footer, just the calendar itself.
       - name: Contribution calendar card
         uses: lowlighter/metrics@v3.34
         with:
