@@ -119,10 +119,10 @@ const fmt = n => (n >= 1000 ? (n / 1000).toFixed(1).replace(/\.0$/, "") + "k" : 
 
 const LEVEL_FILL = {
   NONE: "#161b22",
-  FIRST_QUARTER: "#0e4429",
-  SECOND_QUARTER: "#006d32",
-  THIRD_QUARTER: "#26a641",
-  FOURTH_QUARTER: "#39d353",
+  FIRST_QUARTILE: "#0e4429",
+  SECOND_QUARTILE: "#006d32",
+  THIRD_QUARTILE: "#26a641",
+  FOURTH_QUARTILE: "#39d353",
 };
 
 (async () => {
