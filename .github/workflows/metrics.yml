@@ -1,44 +1,41 @@
-name: GitHub Metrics
+name: Terminal Profile
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "17 0 * * *"
   workflow_dispatch:
   push:
     branches: ["main", "master"]
 
 jobs:
-  github-metrics:
+  generate-terminal:
     runs-on: ubuntu-latest
     permissions:
       contents: write
 
     steps:
-      - name: Stats and languages card
-        uses: lowlighter/metrics@v3.34
-        with:
-          token: ${{ secrets.METRICS_TOKEN }}
-          committer_token: ${{ secrets.GITHUB_TOKEN }}
-          filename: assets/metrics-stats.svg
-          base: header
-          plugin_languages: yes
-          plugin_languages_indepth: yes
-          plugin_languages_limit: 8
-          plugin_languages_sections: most-used
-          plugin_languages_details: percentage
-          plugin_languages_colors: github
-          config_timezone: Asia/Kolkata
-          config_display: large
-          config_animations: yes
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Contribution calendar card
-        uses: lowlighter/metrics@v3.34
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          token: ${{ secrets.METRICS_TOKEN }}
-          committer_token: ${{ secrets.GITHUB_TOKEN }}
-          filename: assets/metrics-calendar.svg
-          base: ""
-          plugin_isocalendar: yes
-          plugin_isocalendar_duration: full-year
-          config_timezone: Asia/Kolkata
-          config_animations: yes
+          node-version: 22
+
+      - name: Generate terminal SVG
+        env:
+          GITHUB_TOKEN: ${{ secrets.METRICS_TOKEN }}
+          GH_LOGIN: Mrtracker-new
+        run: node scripts/generate-terminal.js
+
+      - name: Commit updated SVG
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/terminal-intro.svg
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: update terminal profile [skip ci]"
+            git push
+          else
+            echo "No changes to commit"
+          fi
