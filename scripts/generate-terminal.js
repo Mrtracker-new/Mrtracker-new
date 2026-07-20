@@ -158,7 +158,9 @@ const LEVEL_FILL = {
   // ---------- layout constants ----------
   const PAD_X = 26;
   const HEADER_H = 36;
-  const ART_FS = 7.4, ART_LH = 8.6, ART_CW = ART_FS * 0.602;
+  const BAR_H = 26; // tmux status bar at the bottom
+  // art sized to ~55% width so the identity panel fits beside it (neofetch layout)
+  const ART_FS = 4.8, ART_LH = ART_FS * 1.162, ART_CW = ART_FS * 0.602;
   const BODY_FS = 12.5, BODY_LH = 21;
   const CW = BODY_FS * 0.602;
   const W = Math.max(Math.ceil(artCols * ART_CW) + PAD_X * 2, 800);
@@ -170,9 +172,8 @@ const LEVEL_FILL = {
   };
 
   // timing
-  const ART_START = 0.3, ART_STEP = 0.04;
-  const artDone = ART_START + art.length * ART_STEP;
-  let t = artDone + 0.15;
+  const ART_STEP = 0.03;
+  let t = 0.2;
 
   const elems = [];
   let y = 0; // set later
@@ -185,6 +186,14 @@ const LEVEL_FILL = {
     const spans = chars.map((c, i) =>
       `<tspan class="tw" style="animation-delay:${(start + i * per).toFixed(2)}s">${esc(c)}</tspan>`).join("");
     elems.push(`<text xml:space="preserve" class="b txt" x="${PAD_X}" y="${y}"><tspan class="tw pr" style="animation-delay:${start.toFixed(2)}s">❯ </tspan>${spans}</text>`);
+    // travelling block cursor — steps along with the typed chars (SMIL: runs in
+    // <img>, invisible in static viewers since base opacity is 0)
+    const xs = chars.map((_, i) => (PAD_X + (2 + i) * CW).toFixed(1));
+    xs.push((PAD_X + (2 + chars.length) * CW).toFixed(1));
+    elems.push(`<rect x="${xs[0]}" y="${(y - BODY_FS + 1).toFixed(1)}" width="${(CW + 1).toFixed(1)}" height="${BODY_FS + 2}" fill="${colors.grn}" opacity="0">` +
+      `<set attributeName="opacity" to="0.85" begin="${start.toFixed(2)}s" end="${(start + dur + 0.3).toFixed(2)}s"/>` +
+      `<animate attributeName="x" values="${xs.join(";")}" calcMode="discrete" begin="${start.toFixed(2)}s" dur="${(dur + per).toFixed(2)}s" fill="freeze"/>` +
+      `</rect>`);
     t = start + dur + 0.08;
     y += BODY_LH;
   }
@@ -197,18 +206,41 @@ const LEVEL_FILL = {
   function gap(h = 0.5) { y += BODY_LH * h; t += 0.05; }
 
   // ================= build body =================
-  // y starts after art
   const artH = art.length * ART_LH;
-  y = HEADER_H + 20 + artH + 26 + BODY_FS;
+  y = HEADER_H + 20 + BODY_FS;
 
-  // --- identify ---
+  // --- identify: neofetch layout — logo left, identity panel right ---
   cmdLine("./identify --user rolan", 0.55);
-  outLine([["dim", "  name        "], ["txt", "Rolan Lobo"]]);
-  outLine([["dim", "  alias       "], ["grn", "RNR"]]);
-  outLine([["dim", "  role        "], ["txt", "Privacy Engineer · Python Developer"]]);
-  outLine([["dim", "  status      "], ["grn", "● ACTIVE"]]);
-  outLine([["dim", "  clearance   "], ["ylw", "LEVEL 5"]]);
-  gap();
+  y += 8;
+  const artTop = y;
+  const artW = Math.ceil(artCols * ART_CW);
+  const artStart = t + 0.1;
+
+  // identity panel beside the art
+  const infoX = PAD_X + artW + 36;
+  const INFO_LH = 19;
+  let iy = artTop + BODY_FS + 2;
+  function infoLine(parts) {
+    const spans = parts.map(([cls, txt]) => `<tspan class="${cls}">${esc(txt)}</tspan>`).join("");
+    elems.push(`<text xml:space="preserve" class="b out" x="${infoX}" y="${iy}" style="animation-delay:${t.toFixed(2)}s">${spans}</text>`);
+    t += 0.07;
+    iy += INFO_LH;
+  }
+  infoLine([["grn", "rolan"], ["dim", "@"], ["grn", "rnr"]]);
+  // separator as a rect — box-drawing glyphs distort on mobile fonts
+  elems.push(`<rect class="out" x="${infoX}" y="${(iy - INFO_LH + 7).toFixed(1)}" width="96" height="1.5" fill="${colors.dim}" style="animation-delay:${t.toFixed(2)}s"/>`);
+  iy += 4; // breathing room after separator
+  infoLine([["dim", "name       "], ["txt", "Rolan Lobo"]]);
+  infoLine([["dim", "alias      "], ["grn", "RNR"]]);
+  infoLine([["dim", "role       "], ["txt", "Privacy Engineer"]]);
+  infoLine([["dim", "           "], ["txt", "Python Developer"]]);
+  infoLine([["dim", "status     "], ["grn pulse", "● "], ["grn", "ACTIVE"]]);
+  infoLine([["dim", "clearance  "], ["ylw", "LEVEL 5"]]);
+
+  // advance below whichever column is taller
+  t = Math.max(t, artStart + art.length * ART_STEP) + 0.15;
+  y = artTop + Math.max(artH, iy - artTop) + BODY_LH * 0.9 + BODY_FS;
+  gap(0.2);
 
   // --- skills ---
   cmdLine("which --all skills", 0.45);
@@ -226,7 +258,27 @@ const LEVEL_FILL = {
   ]);
   gap(0.4);
 
-  // language bars: name padded to 12, bar of 24 cells, pct
+  // 30-day commit sparkline — rect-based terminal ▁▂▅▇ style (font-safe)
+  {
+    const days = data.weeks.flatMap(w => w.contributionDays).slice(-30);
+    const maxC = Math.max(1, ...days.map(d => d.contributionCount));
+    const SP_W = 5, SP_G = 2, SP_H = 14;
+    const spX = PAD_X + Math.floor(2 * CW) + 12 * CW; // align with bar column
+    const base = y + 2;
+    const bars = days.map((d, i) => {
+      const h = d.contributionCount === 0 ? 1.5 : Math.max(2.5, (d.contributionCount / maxC) * SP_H);
+      const fill = d.contributionCount === 0 ? "#21262d" : colors.grn;
+      const op = d.contributionCount === 0 ? 1 : (0.45 + 0.55 * (d.contributionCount / maxC)).toFixed(2);
+      return `<rect x="${spX + i * (SP_W + SP_G)}" y="${(base - h).toFixed(1)}" width="${SP_W}" height="${h.toFixed(1)}" rx="1" fill="${fill}" opacity="${op}"/>`;
+    }).join("");
+    elems.push(`<text xml:space="preserve" class="b out" x="${PAD_X}" y="${y}" style="animation-delay:${t.toFixed(2)}s"><tspan class="dim">  activity</tspan></text>`);
+    elems.push(`<g class="out" style="animation-delay:${(t + 0.05).toFixed(2)}s">${bars}</g>`);
+    const spEnd = spX + days.length * (SP_W + SP_G) + 6;
+    elems.push(`<text class="b out dim" x="${spEnd}" y="${y}" style="animation-delay:${(t + 0.1).toFixed(2)}s">30d</text>`);
+    t += 0.15;
+    y += BODY_LH;
+  }
+  gap(0.4);
   const BAR_N = 24;
   for (const l of data.langs) {
     const filled = Math.max(1, Math.round((l.pct / 100) * BAR_N));
@@ -309,10 +361,36 @@ const LEVEL_FILL = {
   elems.push(`<rect x="${PAD_X + CW * 2.2}" y="${y - BODY_FS + 1}" width="${CW + 1}" height="${BODY_FS + 2}" fill="${colors.grn}" opacity="0" style="animation: blink 1.1s step-end ${curT.toFixed(2)}s infinite"/>`);
   y += BODY_LH;
 
-  const H = Math.ceil(y + 16);
+  const H = Math.ceil(y + 12) + BAR_H;
+
+  // ---------- tmux status bar ----------
+  const barY = H - BAR_H;
+  const today = new Date().toISOString().slice(0, 10);
+  const barEls = [
+    `<rect x=".5" y="${barY}" width="${W - 1}" height="${BAR_H - 0.5}" rx="10" fill="${colors.header}"/>`,
+    `<rect x=".5" y="${barY}" width="${W - 1}" height="${BAR_H / 2}" fill="${colors.header}"/>`,
+    `<path d="M .5 ${barY} h ${W - 1}" stroke="${colors.border}" stroke-width="1"/>`,
+    `<rect x="${PAD_X - 8}" y="${barY + 5.5}" width="46" height="15" rx="3" fill="${colors.grn}"/>`,
+    `<text x="${PAD_X + 15}" y="${barY + 17}" text-anchor="middle" font-size="11" font-weight="bold" fill="${colors.bg}">rnr</text>`,
+    `<text xml:space="preserve" x="${PAD_X + 46}" y="${barY + 17}" font-size="11" fill="${colors.grn}">0:profile*</text>`,
+    `<text xml:space="preserve" x="${W - PAD_X + 8}" y="${barY + 17}" text-anchor="end" font-size="11"><tspan fill="${colors.dim}">RNR · ${today} · </tspan><tspan fill="${colors.grn}">⏻ 97%</tspan></text>`,
+  ];
 
   // ---------- chrome (prepended) ----------
   const chrome = [
+    `<defs>
+    <linearGradient id="logograd" gradientUnits="userSpaceOnUse" x1="${PAD_X}" y1="0" x2="${PAD_X + Math.ceil(artCols * ART_CW)}" y2="0">
+      <stop offset="0" stop-color="#58a6ff">
+        <animate attributeName="stop-color" values="#58a6ff;#bc8cff;#3fb950;#58a6ff" dur="9s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset=".5" stop-color="#bc8cff">
+        <animate attributeName="stop-color" values="#bc8cff;#3fb950;#58a6ff;#bc8cff" dur="9s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="1" stop-color="#3fb950">
+        <animate attributeName="stop-color" values="#3fb950;#58a6ff;#bc8cff;#3fb950" dur="9s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+  </defs>`,
     `<rect x=".5" y=".5" width="${W - 1}" height="${H - 1}" rx="10" fill="${colors.bg}" stroke="${colors.border}"/>`,
     `<rect x=".5" y=".5" width="${W - 1}" height="${HEADER_H - 0.5}" rx="10" fill="${colors.header}"/>`,
     `<rect x=".5" y="${HEADER_H / 2}" width="${W - 1}" height="${HEADER_H / 2}" fill="${colors.header}"/>`,
@@ -325,11 +403,12 @@ const LEVEL_FILL = {
 
   // art lines — rendered as rects, not text: mobile clients lack the monospace
   // fonts and their fallback block glyphs leave gaps, distorting the logo.
+  // Filled with an animated gradient (url(#logograd)).
   const SHADE = { "█": 1, "▓": 0.78, "▒": 0.52, "░": 0.28 };
-  const artX = Math.round((W - artCols * ART_CW) / 2);
+  const artX = PAD_X;
   const artEls = art.map((line, i) => {
-    const d = (ART_START + i * ART_STEP).toFixed(2);
-    const ly = HEADER_H + 20 + i * ART_LH;
+    const d = (artStart + i * ART_STEP).toFixed(2);
+    const ly = artTop + i * ART_LH;
     // run-length merge consecutive same-shade cells into one rect
     const rects = [];
     let run = null; // { start, len, op }
@@ -346,13 +425,13 @@ const LEVEL_FILL = {
       run = { start: col, len: 1, op };
     });
     flush();
-    return `<g class="art" fill="${colors.txt}" style="animation-delay:${d}s">${rects.join("")}</g>`;
+    return `<g class="art" fill="url(#logograd)" style="animation-delay:${d}s">${rects.join("")}</g>`;
   });
 
   const style = `
   <style>
     text { font-family: 'Cascadia Code','JetBrains Mono','Fira Code',Consolas,'Courier New',monospace; }
-    .art  { font-size: ${ART_FS}px; fill: ${colors.txt}; white-space: pre; opacity: 0; animation: reveal .18s ease-out forwards; }
+    .art  { opacity: 0; animation: reveal .18s ease-out forwards; }
     .b    { font-size: ${BODY_FS}px; white-space: pre; }
     .cal-lbl { font-size: 9px; fill: ${colors.dim}; }
     .txt { fill: ${colors.txt}; } .dim { fill: ${colors.dim}; }
@@ -360,6 +439,8 @@ const LEVEL_FILL = {
     .cyn { fill: ${colors.cyn}; } .mag { fill: ${colors.mag}; }
     .red { fill: ${colors.red}; }
     .pr  { fill: ${colors.prompt}; font-weight: bold; }
+    .pulse { animation: pulse 2.2s ease-in-out infinite; }
+    @keyframes pulse  { 0%,100% { opacity: 1; } 50% { opacity: 0.25; } }
     .out { opacity: 0; animation: reveal .25s ease-out forwards; }
     .tw  { opacity: 0; animation: show 0s forwards; }
     @keyframes reveal { to { opacity: 1; } }
@@ -376,6 +457,7 @@ ${style}
 ${chrome.join("\n")}
 ${artEls.join("\n")}
 ${elems.join("\n")}
+${barEls.join("\n")}
 </svg>`;
 
   fs.writeFileSync(OUT_FILE, svg, "utf8");
