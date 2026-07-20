@@ -81,7 +81,7 @@ function sampleData() {
   const weeks = [];
   let seed = 42;
   const rnd = () => ((seed = (seed * 1103515245 + 12345) & 0x7fffffff) / 0x7fffffff);
-  const levels = ["NONE", "FIRST_QUARTER", "SECOND_QUARTER", "THIRD_QUARTER", "FOURTH_QUARTER"];
+  const levels = ["NONE", "FIRST_QUARTILE", "SECOND_QUARTILE", "THIRD_QUARTILE", "FOURTH_QUARTILE"];
   const start = new Date();
   start.setDate(start.getDate() - 364 - start.getDay());
   let total = 0;
@@ -323,14 +323,30 @@ const LEVEL_FILL = {
     `<text x="${W / 2}" y="${HEADER_H / 2 + 4}" text-anchor="middle" font-size="12" fill="${colors.dim}" class="mono">rolan@rnr: ~/profile</text>`,
   ];
 
-  // art lines
+  // art lines — rendered as rects, not text: mobile clients lack the monospace
+  // fonts and their fallback block glyphs leave gaps, distorting the logo.
+  const SHADE = { "█": 1, "▓": 0.78, "▒": 0.52, "░": 0.28 };
   const artX = Math.round((W - artCols * ART_CW) / 2);
-  let ay = HEADER_H + 20 + ART_FS;
   const artEls = art.map((line, i) => {
     const d = (ART_START + i * ART_STEP).toFixed(2);
-    const el = `<text xml:space="preserve" class="art" x="${artX}" y="${ay.toFixed(1)}" style="animation-delay:${d}s">${esc(line)}</text>`;
-    ay += ART_LH;
-    return el;
+    const ly = HEADER_H + 20 + i * ART_LH;
+    // run-length merge consecutive same-shade cells into one rect
+    const rects = [];
+    let run = null; // { start, len, op }
+    const flush = () => {
+      if (!run) return;
+      rects.push(`<rect x="${(artX + run.start * ART_CW).toFixed(1)}" y="${ly.toFixed(1)}" width="${(run.len * ART_CW + 0.25).toFixed(2)}" height="${(ART_LH + 0.25).toFixed(2)}"${run.op < 1 ? ` opacity="${run.op}"` : ""}/>`);
+      run = null;
+    };
+    [...line].forEach((ch, col) => {
+      const op = SHADE[ch];
+      if (op === undefined) { flush(); return; }
+      if (run && run.op === op) { run.len++; return; }
+      flush();
+      run = { start: col, len: 1, op };
+    });
+    flush();
+    return `<g class="art" fill="${colors.txt}" style="animation-delay:${d}s">${rects.join("")}</g>`;
   });
 
   const style = `
