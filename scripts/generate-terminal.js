@@ -26,6 +26,7 @@ const OUT_FILE = path.join(__dirname, "..", "assets", "terminal-intro.svg");
 async function fetchGitHub() {
   const query = `query($login:String!){
     user(login:$login){
+      createdAt
       followers{ totalCount }
       repositories(first:100, ownerAffiliations:OWNER, isFork:false, orderBy:{field:STARGAZERS,direction:DESC}){
         totalCount
@@ -67,6 +68,7 @@ async function fetchGitHub() {
   const cc = u.contributionsCollection;
   return {
     stars,
+    sinceYear: new Date(u.createdAt).getUTCFullYear(),
     repos: u.repositories.totalCount,
     commits: cc.totalCommitContributions + cc.restrictedContributionsCount,
     followers: u.followers.totalCount,
@@ -100,7 +102,7 @@ function sampleData() {
     weeks.push({ contributionDays: days });
   }
   return {
-    stars: 36, repos: 24, commits: 812, followers: 14,
+    stars: 36, repos: 24, commits: 812, followers: 14, sinceYear: 2021,
     langs: [
       { name: "Python", pct: 46.9, color: "#3572A5" },
       { name: "JavaScript", pct: 21.4, color: "#f1e05a" },
@@ -373,7 +375,7 @@ const LEVEL_FILL = {
     `<rect x="${PAD_X - 8}" y="${barY + 5.5}" width="46" height="15" rx="3" fill="${colors.grn}"/>`,
     `<text x="${PAD_X + 15}" y="${barY + 17}" text-anchor="middle" font-size="11" font-weight="bold" fill="${colors.bg}">rnr</text>`,
     `<text xml:space="preserve" x="${PAD_X + 46}" y="${barY + 17}" font-size="11" fill="${colors.grn}">0:profile*</text>`,
-    `<text xml:space="preserve" x="${W - PAD_X + 8}" y="${barY + 17}" text-anchor="end" font-size="11"><tspan fill="${colors.dim}">RNR · ${today} · </tspan><tspan fill="${colors.grn}">⏻ 97%</tspan></text>`,
+    `<text xml:space="preserve" x="${W - PAD_X + 8}" y="${barY + 17}" text-anchor="end" font-size="11"><tspan fill="${colors.dim}">RNR · ${today} · </tspan><tspan fill="${colors.grn}">since ${data.sinceYear}</tspan></text>`,
   ];
 
   // ---------- chrome (prepended) ----------
