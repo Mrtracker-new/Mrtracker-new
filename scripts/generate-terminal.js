@@ -375,7 +375,7 @@ const LEVEL_FILL = {
     `<rect x="${PAD_X - 8}" y="${barY + 5.5}" width="46" height="15" rx="3" fill="${colors.grn}"/>`,
     `<text x="${PAD_X + 15}" y="${barY + 17}" text-anchor="middle" font-size="11" font-weight="bold" fill="${colors.bg}">rnr</text>`,
     `<text xml:space="preserve" x="${PAD_X + 46}" y="${barY + 17}" font-size="11" fill="${colors.grn}">0:profile*</text>`,
-    `<text xml:space="preserve" x="${W - PAD_X + 8}" y="${barY + 17}" text-anchor="end" font-size="11"><tspan fill="${colors.dim}">RNR · ${today} · </tspan><tspan fill="${colors.grn}">since ${data.sinceYear}</tspan></text>`,
+    `<text xml:space="preserve" x="${W - PAD_X + 8}" y="${barY + 17}" text-anchor="end" font-size="11"><tspan fill="${colors.dim}">RNR · ${today} · </tspan><tspan fill="${colors.grn}">uptime ${new Date().getUTCFullYear() - data.sinceYear}y</tspan></text>`,
   ];
 
   // ---------- chrome (prepended) ----------
