@@ -191,7 +191,7 @@ const LEVEL_FILL = {
   function gap(h = 0.5) { y += BODY_LH * h; t += 0.05; }
 
   const artH = art.length * ART_LH;
-  y = HEADER_H + 20 + BODY_FS;
+  y = HEADER_H + 32 + BODY_FS;
 
   // Identity section
   cmdLine("./identify --user rolan", 0.55);
@@ -215,7 +215,7 @@ const LEVEL_FILL = {
   infoLine([["dim", "name       "], ["txt", "Rolan Lobo"]]);
   infoLine([["dim", "alias      "], ["grn", "RNR"]]);
   infoLine([["dim", "role       "], ["txt", "Privacy Engineer"]]);
-  infoLine([["dim", "           "], ["txt", "Python Developer"]]);
+  infoLine([["dim", "           "], ["txt", "Full-Stack Developer"]]);
   infoLine([["dim", "status     "], ["grn pulse", "● "], ["grn", "ACTIVE"]]);
   infoLine([["dim", "clearance  "], ["ylw", "LEVEL 5"]]);
 
@@ -225,8 +225,21 @@ const LEVEL_FILL = {
 
   // Skills section
   cmdLine("which --all skills", 0.45);
-  outLine([["cyn", "  python "], ["dim", "· "], ["ylw", "javascript "], ["dim", "· "], ["red", "rust "], ["dim", "· "], ["grn", "bash "], ["dim", "· "], ["cyn", "docker "], ["dim", "· "], ["txt", "linux"]]);
-  outLine([["mag", "  git "], ["dim", "· "], ["cyn", "postgres "], ["dim", "· "], ["txt", "html "], ["dim", "· "], ["mag", "css "], ["dim", "· "], ["ylw", "vscode "], ["dim", "· "], ["grn", "github-actions"]]);
+  outLine([
+    ["cyn", "  Python "], ["dim", "• "],
+    ["cyn", "TypeScript "], ["dim", "• "],
+    ["ylw", "React "], ["dim", "• "],
+    ["red", "Rust "], ["dim", "• "],
+    ["cyn", "PostgreSQL "], ["dim", "• "],
+    ["grn", "MongoDB"]
+  ]);
+  outLine([
+    ["mag", "  Electron "], ["dim", "• "],
+    ["cyn", "Docker "], ["dim", "• "],
+    ["grn", "GitHub Actions "], ["dim", "• "],
+    ["txt", "Linux "], ["dim", "• "],
+    ["mag", "Git"]
+  ]);
   gap();
 
   // Git statistics
@@ -322,19 +335,18 @@ const LEVEL_FILL = {
   // Featured projects
   cmdLine("ls ./projects", 0.35);
   outLine([["cyn", "  ► InvisioVault"], ["dim", "      steganography vault"]]);
-  outLine([["cyn", "  ► BAR"], ["dim", "               burn-after-reading file sharing"]]);
-  outLine([["cyn", "  ► LinkNest"], ["dim", "          self-hosted bookmark manager"]]);
+  outLine([["cyn", "  ► BAR"], ["dim", "               burn-after-reading privacy chat & secure file sharing"]]);
+  outLine([["cyn", "  ► NetPulse"], ["dim", "          network performance & security monitor"]]);
   gap();
 
-  // Mission statement
+  // Status / mission section
   cmdLine("cat mission.txt", 0.4);
-  outLine([["txt", "  Building secure, privacy-first software."]]);
+  outLine([["txt", "  Building secure desktop applications, web apps & open-source tools..."]]);
   gap();
 
-  // Blinking terminal cursor
+  // Blinking terminal cursor (active session)
   const curT = t + 0.2;
-  elems.push(`<text xml:space="preserve" class="b" x="${PAD_X}" y="${y}"><tspan class="tw pr" style="animation-delay:${curT.toFixed(2)}s">❯ </tspan>${""}</text>`);
-  elems.push(`<rect x="${PAD_X + CW * 2.2}" y="${y - BODY_FS + 1}" width="${CW + 1}" height="${BODY_FS + 2}" fill="${colors.grn}" opacity="0" style="animation: blink 1.1s step-end ${curT.toFixed(2)}s infinite"/>`);
+  elems.push(`<text xml:space="preserve" class="b" x="${PAD_X}" y="${y}"><tspan class="tw pr" style="animation-delay:${curT.toFixed(2)}s">❯ </tspan><tspan class="grn" style="animation: blink 1.1s step-end ${curT.toFixed(2)}s infinite">█</tspan></text>`);
   y += BODY_LH;
 
   const H = Math.ceil(y + 12) + BAR_H;
@@ -349,7 +361,7 @@ const LEVEL_FILL = {
     `<rect x="${PAD_X - 8}" y="${barY + 5.5}" width="46" height="15" rx="3" fill="${colors.grn}"/>`,
     `<text x="${PAD_X + 15}" y="${barY + 17}" text-anchor="middle" font-size="11" font-weight="bold" fill="${colors.bg}">rnr</text>`,
     `<text xml:space="preserve" x="${PAD_X + 46}" y="${barY + 17}" font-size="11" fill="${colors.grn}">0:profile*</text>`,
-    `<text xml:space="preserve" x="${W - PAD_X + 8}" y="${barY + 17}" text-anchor="end" font-size="11"><tspan fill="${colors.dim}">RNR · ${today} · </tspan><tspan fill="${colors.grn}">uptime ${new Date().getUTCFullYear() - data.sinceYear}y</tspan></text>`,
+    `<text xml:space="preserve" x="${W - PAD_X + 8}" y="${barY + 17}" text-anchor="end" font-size="11"><tspan fill="#c9d1d9">RNR · ${today} · </tspan><tspan fill="${colors.grn}">uptime ${new Date().getUTCFullYear() - data.sinceYear}y</tspan></text>`,
   ];
 
   // Window titlebar and chrome
@@ -374,7 +386,7 @@ const LEVEL_FILL = {
     `<circle cx="22" cy="${HEADER_H / 2}" r="6" fill="#ff5f57"/>`,
     `<circle cx="42" cy="${HEADER_H / 2}" r="6" fill="#febc2e"/>`,
     `<circle cx="62" cy="${HEADER_H / 2}" r="6" fill="#28c840"/>`,
-    `<text x="${W / 2}" y="${HEADER_H / 2 + 4}" text-anchor="middle" font-size="12" fill="${colors.dim}" class="mono">rolan@rnr: ~/profile</text>`,
+    `<text x="${W / 2}" y="${HEADER_H / 2 + 4}" text-anchor="middle" font-size="12" fill="#c9d1d9" class="mono">rolan@rnr: ~/profile</text>`,
   ];
 
   // Render ASCII art using SVG rect elements
