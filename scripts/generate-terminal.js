@@ -1,28 +1,14 @@
 #!/usr/bin/env node
-/**
- * Generates assets/terminal-intro.svg
- * One animated terminal containing everything:
- *   - ASCII "RNR" logo rendered line-by-line
- *   - ./identify        -> personnel data
- *   - which --all skills -> skill list
- *   - git stats          -> stars / repos / commits / followers + language bars
- *   - git log --graph    -> contribution heatmap (terminal-styled calendar)
- *   - ls ./projects, cat mission.txt, blinking cursor
- *
- * Live data: set GITHUB_TOKEN (and optionally GH_LOGIN, default "Mrtracker-new").
- * Without a token it falls back to sample data so local preview still works.
- *
- * Usage: node scripts/generate-terminal.js
- */
 const fs = require("fs");
 const path = require("path");
 
+// Environment variables and file paths
 const LOGIN = process.env.GH_LOGIN || "Mrtracker-new";
 const TOKEN = process.env.GITHUB_TOKEN || process.env.METRICS_TOKEN || "";
 const ART_FILE = path.join(__dirname, "..", "assets", "ascii-art.txt");
 const OUT_FILE = path.join(__dirname, "..", "assets", "terminal-intro.svg");
 
-// ---------------- data ----------------
+// Fetch live GitHub profile data via GraphQL API
 async function fetchGitHub() {
   const query = `query($login:String!){
     user(login:$login){
@@ -78,8 +64,8 @@ async function fetchGitHub() {
   };
 }
 
+// Fallback sample data for local preview without a token
 function sampleData() {
-  // deterministic pseudo-random calendar so local preview looks real
   const weeks = [];
   let seed = 42;
   const rnd = () => ((seed = (seed * 1103515245 + 12345) & 0x7fffffff) / 0x7fffffff);
@@ -115,10 +101,11 @@ function sampleData() {
   };
 }
 
-// ---------------- helpers ----------------
+// Helper formatting utilities
 const esc = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 const fmt = n => (n >= 1000 ? (n / 1000).toFixed(1).replace(/\.0$/, "") + "k" : String(n));
 
+// Contribution level colors
 const LEVEL_FILL = {
   NONE: "#161b22",
   FIRST_QUARTILE: "#0e4429",
@@ -134,7 +121,6 @@ const LEVEL_FILL = {
     data = await fetchGitHub();
     console.log(`fetched live data for ${LOGIN}`);
   } catch (e) {
-    // In CI a fallback would silently publish fake stats — fail loudly instead.
     if (process.env.CI) {
       console.error(`refusing to use sample data in CI: ${e.message}`);
       process.exit(1);
@@ -143,7 +129,7 @@ const LEVEL_FILL = {
     console.log(`using sample data (${e.message})`);
   }
 
-  // ---------- load + crop art ----------
+  // Load and crop ASCII art
   const raw = fs.readFileSync(ART_FILE, "utf8").split(/\r?\n/);
   let firstL = -1, lastL = -1, minStart = Infinity;
   raw.forEach((l, i) => {
@@ -157,30 +143,29 @@ const LEVEL_FILL = {
   const art = raw.slice(firstL, lastL + 1).map(l => l.slice(minStart).replace(/\s+$/, ""));
   const artCols = Math.max(...art.map(l => l.length));
 
-  // ---------- layout constants ----------
+  // Layout constants and dimensions
   const PAD_X = 26;
   const HEADER_H = 36;
-  const BAR_H = 26; // tmux status bar at the bottom
-  // art sized to ~55% width so the identity panel fits beside it (neofetch layout)
+  const BAR_H = 26;
   const ART_FS = 4.8, ART_LH = ART_FS * 1.162, ART_CW = ART_FS * 0.602;
   const BODY_FS = 12.5, BODY_LH = 21;
   const CW = BODY_FS * 0.602;
   const W = Math.max(Math.ceil(artCols * ART_CW) + PAD_X * 2, 800);
 
+  // Terminal color scheme
   const colors = {
     bg: "#0d1117", border: "#30363d", header: "#161b22",
     txt: "#e6edf3", dim: "#8b949e", grn: "#3fb950", ylw: "#d29922",
     cyn: "#58a6ff", mag: "#bc8cff", red: "#f85149", prompt: "#3fb950",
   };
 
-  // timing
   const ART_STEP = 0.03;
   let t = 0.2;
 
   const elems = [];
-  let y = 0; // set later
+  let y = 0;
 
-  // ---- body line builders (they push into `elems` and advance `y`/`t`) ----
+  // Terminal output line builders
   function cmdLine(text, dur) {
     const start = t + 0.15;
     const chars = [...text];
@@ -188,8 +173,6 @@ const LEVEL_FILL = {
     const spans = chars.map((c, i) =>
       `<tspan class="tw" style="animation-delay:${(start + i * per).toFixed(2)}s">${esc(c)}</tspan>`).join("");
     elems.push(`<text xml:space="preserve" class="b txt" x="${PAD_X}" y="${y}"><tspan class="tw pr" style="animation-delay:${start.toFixed(2)}s">❯ </tspan>${spans}</text>`);
-    // travelling block cursor — steps along with the typed chars (SMIL: runs in
-    // <img>, invisible in static viewers since base opacity is 0)
     const xs = chars.map((_, i) => (PAD_X + (2 + i) * CW).toFixed(1));
     xs.push((PAD_X + (2 + chars.length) * CW).toFixed(1));
     elems.push(`<rect x="${xs[0]}" y="${(y - BODY_FS + 1).toFixed(1)}" width="${(CW + 1).toFixed(1)}" height="${BODY_FS + 2}" fill="${colors.grn}" opacity="0">` +
@@ -207,18 +190,16 @@ const LEVEL_FILL = {
   }
   function gap(h = 0.5) { y += BODY_LH * h; t += 0.05; }
 
-  // ================= build body =================
   const artH = art.length * ART_LH;
   y = HEADER_H + 20 + BODY_FS;
 
-  // --- identify: neofetch layout — logo left, identity panel right ---
+  // Identity section
   cmdLine("./identify --user rolan", 0.55);
   y += 8;
   const artTop = y;
   const artW = Math.ceil(artCols * ART_CW);
   const artStart = t + 0.1;
 
-  // identity panel beside the art
   const infoX = PAD_X + artW + 36;
   const INFO_LH = 19;
   let iy = artTop + BODY_FS + 2;
@@ -229,9 +210,8 @@ const LEVEL_FILL = {
     iy += INFO_LH;
   }
   infoLine([["grn", "rolan"], ["dim", "@"], ["grn", "rnr"]]);
-  // separator as a rect — box-drawing glyphs distort on mobile fonts
   elems.push(`<rect class="out" x="${infoX}" y="${(iy - INFO_LH + 7).toFixed(1)}" width="96" height="1.5" fill="${colors.dim}" style="animation-delay:${t.toFixed(2)}s"/>`);
-  iy += 4; // breathing room after separator
+  iy += 4;
   infoLine([["dim", "name       "], ["txt", "Rolan Lobo"]]);
   infoLine([["dim", "alias      "], ["grn", "RNR"]]);
   infoLine([["dim", "role       "], ["txt", "Privacy Engineer"]]);
@@ -239,18 +219,17 @@ const LEVEL_FILL = {
   infoLine([["dim", "status     "], ["grn pulse", "● "], ["grn", "ACTIVE"]]);
   infoLine([["dim", "clearance  "], ["ylw", "LEVEL 5"]]);
 
-  // advance below whichever column is taller
   t = Math.max(t, artStart + art.length * ART_STEP) + 0.15;
   y = artTop + Math.max(artH, iy - artTop) + BODY_LH * 0.9 + BODY_FS;
   gap(0.2);
 
-  // --- skills ---
+  // Skills section
   cmdLine("which --all skills", 0.45);
   outLine([["cyn", "  python "], ["dim", "· "], ["ylw", "javascript "], ["dim", "· "], ["red", "rust "], ["dim", "· "], ["grn", "bash "], ["dim", "· "], ["cyn", "docker "], ["dim", "· "], ["txt", "linux"]]);
   outLine([["mag", "  git "], ["dim", "· "], ["cyn", "postgres "], ["dim", "· "], ["txt", "html "], ["dim", "· "], ["mag", "css "], ["dim", "· "], ["ylw", "vscode "], ["dim", "· "], ["grn", "github-actions"]]);
   gap();
 
-  // --- git stats ---
+  // Git statistics
   cmdLine("git stats", 0.3);
   outLine([
     ["ylw", "  ★ "], ["txt", `${fmt(data.stars)} stars`], ["dim", "    "],
@@ -260,12 +239,12 @@ const LEVEL_FILL = {
   ]);
   gap(0.4);
 
-  // 30-day commit sparkline — rect-based terminal ▁▂▅▇ style (font-safe)
+  // 30-day activity sparkline
   {
     const days = data.weeks.flatMap(w => w.contributionDays).slice(-30);
     const maxC = Math.max(1, ...days.map(d => d.contributionCount));
     const SP_W = 5, SP_G = 2, SP_H = 14;
-    const spX = PAD_X + Math.floor(2 * CW) + 12 * CW; // align with bar column
+    const spX = PAD_X + Math.floor(2 * CW) + 12 * CW;
     const base = y + 2;
     const bars = days.map((d, i) => {
       const h = d.contributionCount === 0 ? 1.5 : Math.max(2.5, (d.contributionCount / maxC) * SP_H);
@@ -292,7 +271,7 @@ const LEVEL_FILL = {
   }
   gap();
 
-  // --- contribution calendar ---
+  // Contribution graph
   cmdLine("git log --graph --contributions", 0.6);
   outLine([["dim", `  last 12 months · `], ["grn", `${fmt(data.totalContrib)} contributions`]]);
   y += 4;
@@ -302,7 +281,6 @@ const LEVEL_FILL = {
   const calX = PAD_X + Math.floor(2 * CW);
   const calTop = y;
 
-  // month labels
   const monthNames = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
   let lastMonth = -1;
   data.weeks.forEach((w, wi) => {
@@ -310,7 +288,6 @@ const LEVEL_FILL = {
     if (!d0) return;
     const m = new Date(d0.date + "T00:00:00").getMonth();
     if (m !== lastMonth) {
-      // skip label if too close to right edge
       if (wi * STEP < calW - 30) {
         elems.push(`<text class="cal-lbl out" x="${calX + wi * STEP}" y="${calTop}" style="animation-delay:${(t + wi * 0.008).toFixed(2)}s">${monthNames[m]}</text>`);
       }
@@ -319,12 +296,10 @@ const LEVEL_FILL = {
   });
   y = calTop + 8;
 
-  // day labels
   ["Mon", "Wed", "Fri"].forEach((lbl, i) => {
     elems.push(`<text class="cal-lbl out" x="${PAD_X - 2}" y="${y + (1 + i * 2) * STEP + CELL - 2}" style="animation-delay:${t.toFixed(2)}s">${lbl}</text>`);
   });
 
-  // cells — reveal per week column
   data.weeks.forEach((w, wi) => {
     const d = (t + 0.15 + wi * 0.012).toFixed(2);
     const cells = w.contributionDays.map(day => {
@@ -336,7 +311,6 @@ const LEVEL_FILL = {
   t += 0.15 + data.weeks.length * 0.012 + 0.1;
   y += 7 * STEP + 6;
 
-  // legend
   elems.push(`<g class="out" style="animation-delay:${t.toFixed(2)}s">` +
     `<text class="cal-lbl" x="${calX + calW - 118}" y="${y + 8}">less</text>` +
     Object.values(LEVEL_FILL).map((c, i) =>
@@ -345,27 +319,27 @@ const LEVEL_FILL = {
   t += 0.1;
   y += STEP + BODY_LH * 0.9 + BODY_FS;
 
-  // --- projects ---
+  // Featured projects
   cmdLine("ls ./projects", 0.35);
   outLine([["cyn", "  ► InvisioVault"], ["dim", "      steganography vault"]]);
   outLine([["cyn", "  ► BAR"], ["dim", "               burn-after-reading file sharing"]]);
   outLine([["cyn", "  ► LinkNest"], ["dim", "          self-hosted bookmark manager"]]);
   gap();
 
-  // --- mission ---
+  // Mission statement
   cmdLine("cat mission.txt", 0.4);
   outLine([["txt", "  Building secure, privacy-first software."]]);
   gap();
 
-  // --- cursor ---
+  // Blinking terminal cursor
   const curT = t + 0.2;
-  elems.push(`<text xml:space="preserve" class="b" x="${PAD_X}" y="${y}"><tspan class="tw pr" style="animation-delay:${curT.toFixed(2)}s">❯ </tspan></text>`);
+  elems.push(`<text xml:space="preserve" class="b" x="${PAD_X}" y="${y}"><tspan class="tw pr" style="animation-delay:${curT.toFixed(2)}s">❯ </tspan>${""}</text>`);
   elems.push(`<rect x="${PAD_X + CW * 2.2}" y="${y - BODY_FS + 1}" width="${CW + 1}" height="${BODY_FS + 2}" fill="${colors.grn}" opacity="0" style="animation: blink 1.1s step-end ${curT.toFixed(2)}s infinite"/>`);
   y += BODY_LH;
 
   const H = Math.ceil(y + 12) + BAR_H;
 
-  // ---------- tmux status bar ----------
+  // Tmux status bar
   const barY = H - BAR_H;
   const today = new Date().toISOString().slice(0, 10);
   const barEls = [
@@ -378,7 +352,7 @@ const LEVEL_FILL = {
     `<text xml:space="preserve" x="${W - PAD_X + 8}" y="${barY + 17}" text-anchor="end" font-size="11"><tspan fill="${colors.dim}">RNR · ${today} · </tspan><tspan fill="${colors.grn}">uptime ${new Date().getUTCFullYear() - data.sinceYear}y</tspan></text>`,
   ];
 
-  // ---------- chrome (prepended) ----------
+  // Window titlebar and chrome
   const chrome = [
     `<defs>
     <linearGradient id="logograd" gradientUnits="userSpaceOnUse" x1="${PAD_X}" y1="0" x2="${PAD_X + Math.ceil(artCols * ART_CW)}" y2="0">
@@ -403,17 +377,14 @@ const LEVEL_FILL = {
     `<text x="${W / 2}" y="${HEADER_H / 2 + 4}" text-anchor="middle" font-size="12" fill="${colors.dim}" class="mono">rolan@rnr: ~/profile</text>`,
   ];
 
-  // art lines — rendered as rects, not text: mobile clients lack the monospace
-  // fonts and their fallback block glyphs leave gaps, distorting the logo.
-  // Filled with an animated gradient (url(#logograd)).
+  // Render ASCII art using SVG rect elements
   const SHADE = { "█": 1, "▓": 0.78, "▒": 0.52, "░": 0.28 };
   const artX = PAD_X;
   const artEls = art.map((line, i) => {
     const d = (artStart + i * ART_STEP).toFixed(2);
     const ly = artTop + i * ART_LH;
-    // run-length merge consecutive same-shade cells into one rect
     const rects = [];
-    let run = null; // { start, len, op }
+    let run = null;
     const flush = () => {
       if (!run) return;
       rects.push(`<rect x="${(artX + run.start * ART_CW).toFixed(1)}" y="${ly.toFixed(1)}" width="${(run.len * ART_CW + 0.25).toFixed(2)}" height="${(ART_LH + 0.25).toFixed(2)}"${run.op < 1 ? ` opacity="${run.op}"` : ""}/>`);
@@ -430,6 +401,7 @@ const LEVEL_FILL = {
     return `<g class="art" fill="url(#logograd)" style="animation-delay:${d}s">${rects.join("")}</g>`;
   });
 
+  // SVG stylesheet
   const style = `
   <style>
     text { font-family: 'Cascadia Code','JetBrains Mono','Fira Code',Consolas,'Courier New',monospace; }
@@ -448,12 +420,12 @@ const LEVEL_FILL = {
     @keyframes reveal { to { opacity: 1; } }
     @keyframes show   { to { opacity: 1; } }
     @keyframes blink  { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
-    /* Static viewers / reduced motion: show final frame instead of a blank terminal */
     @media (prefers-reduced-motion: reduce) {
       .art, .out, .tw { animation: none; opacity: 1; }
     }
   </style>`;
 
+  // Assemble final SVG document
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Rolan Lobo — RNR terminal profile">
 ${style}
 ${chrome.join("\n")}
